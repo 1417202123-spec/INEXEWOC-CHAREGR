@@ -150,7 +150,7 @@ body {
 
 .product-img {
     height: 160px;
-    background: var(--gray);
+    background: var(--white);
     border-radius: 6px;
     margin-bottom: 1rem;
     display: flex;
