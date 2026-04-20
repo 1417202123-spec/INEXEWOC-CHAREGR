@@ -1,20 +1,22 @@
-/* 全局样式 */
+/* 全局基础样式 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 :root {
-    --primary: #2563eb;
-    --dark: #1e293b;
+    --primary: #2563eb; /* INEXEWOC品牌蓝色主色 */
+    --dark-main: #0f172a; /* 页脚极致深蓝暗黑背景（1:1匹配原图） */
+    --dark-card: #1e293b;
     --light: #f8fafc;
-    --gray: #e2e8f0;
+    --gray: #94a3b8;
+    --gray-line: #334155; /* 分割线颜色 */
 }
 
 body {
-    color: var(--dark);
+    color: var(--dark-card);
     background: var(--light);
     line-height: 1.6;
 }
@@ -25,7 +27,7 @@ body {
     margin: 0 auto;
 }
 
-/* 导航栏 */
+/* 导航栏 原有样式完全保留 */
 .navbar {
     background: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -43,12 +45,14 @@ body {
 
 .logo h2 {
     color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
 .nav-links a {
     margin-left: 1.5rem;
     text-decoration: none;
-    color: var(--dark);
+    color: var(--dark-card);
     font-weight: 500;
 }
 
@@ -56,7 +60,7 @@ body {
     color: var(--primary);
 }
 
-/* 按钮 */
+/* 按钮通用样式 原有全部保留 */
 .btn {
     display: inline-block;
     background: var(--primary);
@@ -68,6 +72,10 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    transition: background 0.3s ease;
+}
+.btn:hover {
+    background: #1d4ed8;
 }
 
 .btn-small {
@@ -81,7 +89,7 @@ body {
     margin-top: 0.5rem;
 }
 
-/* 英雄区 */
+/* 首页英雄区 原有全部保留 */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
@@ -96,7 +104,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* 优势 */
+/* 品牌优势模块 原有全部保留 */
 .features {
     padding: 3rem 0;
     background: white;
@@ -115,7 +123,7 @@ body {
     border-radius: 8px;
 }
 
-/* 产品 */
+/* 产品列表模块 原有全部保留 */
 .products {
     padding: 4rem 0;
 }
@@ -149,9 +157,15 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    overflow: hidden;
+}
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-/* 页面标题 */
+/* 页面通用头部标题 原有全部保留 */
 .page-header {
     background: var(--primary);
     color: white;
@@ -159,7 +173,7 @@ body {
     text-align: center;
 }
 
-/* 内容区 */
+/* 通用内容正文模块 原有全部保留 */
 .content-section {
     padding: 4rem 0;
     background: white;
@@ -174,7 +188,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* 联系表单 */
+/* 联系表单模块 原有全部保留 */
 .contact-form {
     padding: 4rem 0;
 }
@@ -189,7 +203,7 @@ body {
     font-weight: bold;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, .form-group textarea, .form-group select {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -204,31 +218,111 @@ body {
     border-radius: 8px;
 }
 
-/* 页脚 */
+/* ======================================
+   【全新重磅升级】1:1复刻原版 暗黑四栏页脚全部样式
+   ====================================== */
 footer {
-    background: var(--dark);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 2rem;
+    background: var(--dark-main); /* 原图同款深蓝暗黑背景 */
+    color: var(--light);
+    padding: 4rem 0 2rem;
+    margin-top: 3rem;
 }
 
-.footer-links {
+/* 页脚主体四栏网格布局（桌面端4列均分） */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* 每一栏通用标题样式（全大写、粗体、白色） */
+.footer-column h3 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+/* 第一栏：品牌区 */
+.footer-brand h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary); /* 品牌蓝色Logo色，和原图蓝色标题一致 */
     margin-bottom: 1rem;
 }
+.footer-brand p {
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 300px;
+}
 
-.footer-links a {
-    color: #ccc;
-    margin: 0 1rem;
+/* 第二栏：导航链接区 */
+.footer-nav-links a {
+    display: block;
+    color: var(--gray);
     text-decoration: none;
+    margin-bottom: 0.9rem;
+    transition: color 0.3s ease;
+}
+.footer-nav-links a:hover {
+    color: var(--primary);
 }
 
-.footer-links a:hover {
-    color: white;
+/* 第三栏：全球商务支持区 */
+.footer-support p {
+    color: var(--gray);
+    margin-bottom: 0.9rem;
+    line-height: 1.7;
 }
 
-/* 响应式 */
-@media (max-width: 768px) {
+/* 第四栏：社交图标区 圆形图标样式 */
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+}
+.social-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%; /* 原图同款圆形背景 */
+    background-color: var(--dark-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.social-icon:hover {
+    background-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* 页脚底部分割线 + 版权区域 */
+.footer-bottom {
+    border-top: 1px solid var(--gray-line); /* 原图顶部细分割线 */
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--gray);
+    text-transform: uppercase; /* 版权文字全大写，1:1匹配原图 */
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* 移动端响应式适配：小屏幕自动4栏变纵向堆叠 */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
     .features .container {
         grid-template-columns: 1fr;
     }
@@ -240,3 +334,6 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+/* 引入Font Awesome社交图标字体（全网站通用图标库，无需本地图片） */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
