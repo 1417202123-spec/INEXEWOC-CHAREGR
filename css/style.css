@@ -283,8 +283,8 @@ footer {
     gap: 1.2rem;
 }
 .social-icon {
-    width: 42px;
-    height: 42px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%; /* 原图同款圆形背景 */
     background-color: var(--dark-card);
     display: flex;
